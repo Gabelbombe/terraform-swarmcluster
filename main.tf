@@ -18,7 +18,7 @@ Start by cloning this repository
 
 ### Terraform Infrastructure
 
-The make file included from `makefiles/terraform.mk` has some helper methods for applying your Terraform infrastructure.
+The make file included from `makefiles/terraform.mk` has some helpers for applying your Terraform infrastructure.
 
 Plan your infrastructure first (a dry run):
 
@@ -44,7 +44,7 @@ $ make swarm-ssh
 
 An example app is included in `docker/docker-compose.yml`
 
-The make file included from `makefiles/swarm.mk` has some helper for applying your Terraform infrastructure.
+The make file included from `makefiles/swarm.mk` has some helpers for applying your Terraform infrastructure.
 
 ```bash
 $ make swarm-deploy
