@@ -117,7 +117,7 @@ $ make swarm-remove-instance ID=<instance-id>
 ##### Hard Termination
 If for any reason you need to force a node out of the cluster you can simply terminate it. The autoscaling group will automatically provision a new host and the swarm will automatically rebalance the containers the node was running.
 
-##### Removing "down" Nodes
+##### Removing "downed" Nodes
 
 Once instance have been removed from the swarm, the node is show in a "down" state in the `docker node ls` output. You can remove these nodes using the make task:
 
