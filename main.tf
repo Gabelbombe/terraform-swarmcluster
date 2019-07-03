@@ -52,6 +52,8 @@ $ make swarm-deploy
 
 ## Concepts
 
+![AWS Resource Diagram](/assets/aws-resource-diagram.svg "AWS Resource Diagram")
+
 > Note, the `make` commands shown will only work once you have created your swarm using the steps above
 
 ### EC2 Autoscaling Groups
