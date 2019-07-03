@@ -20,3 +20,7 @@ variable "application" {
 variable "provisionersrc" {
   description = "Tag linking to the repository"
 }
+
+output "route-table-id-main" {
+  value = "${ aws_vpc.main.main_route_table_id }"
+}
