@@ -42,5 +42,5 @@ resource "aws_iam_role_policy" "notify-hook" {
   name = "${var.name}-notify-hook"
   role = "${aws_iam_role.notify-hook.id}"
 
-  policy = "${data.aws_iam_policy_document.topic_role.json}"
+  policy = "${data.aws_iam_policy_document.topic_hook.json}"
 }
