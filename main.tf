@@ -1,5 +1,5 @@
 /**
-# Terraform and helper resources for running Docker Swarm near production ready...
+# Terraform Autoscaling Swarm example...
 
 ## Installation
 
