@@ -34,17 +34,17 @@ $ make apply
 
 ### Accessing a Swarm Manager
 
-Provided you have added an SSH key, you will be able access an available swarm manager using the command:
+Provided you have added an SSH key, you will be able access an available Swarm Manager using the command:
 
 ```bash
-$ ssh $(make access-manager-instance)
+$ make swarm-ssh
 ```
 
 ### Deploying the Example Application
 
 An example app is included in `docker/docker-compose.yml`
 
-The make file included from `makefiles/swarm.tf` has some helper for applying your terraform infrastructure.
+The make file included from `makefiles/swarm.mk` has some helper for applying your Terraform infrastructure.
 
 ```bash
 $ make swarm-deploy
@@ -61,20 +61,20 @@ The swarm is composed of multiple EC2 autoscaling groups performing various role
 You can show all available instances and the groups to which they belong using:
 
 ```bash
-$ make list-instances
+$ make swarm-instances
 ```
 
 ##### Manager Group
 
-For a functioning cluster, you must run a manager group, which by default consists of 3 instances which join the cluster as swarm managers.
+For a functioning cluster, you must run a manager group, which by default consists of 3 instances which join the cluster as Swarm Managers.
 
 ```bash
-$ make list-manager-instances
+$ make swarm-managers
 ```
 
 ##### Worker Groups
 
-You can have as many or as few worker groups as you wish, running in as many different configurations as you choose. Worker groups join the cluster as swarm workers.
+You can have as many or as few worker groups as you wish, running in as many different configurations as you choose. Worker groups join the cluster as Swarm Workers.
 
 ### Docker Swarm Discovery
 
@@ -108,11 +108,19 @@ The steps to do this are:
 &ast;This will automatically trigger the notification to update any associated DNS records. If this is the case the instance will remain in the group until a period of (DNS TTL + 120) has expired.
 
 ```bash
-$ make remove-instance ID=<instance-id>
+$ make swarm-remove-instance ID=<instance-id>
 ```
 
 ##### Hard Termination
 If for any reason you need to force a node out of the cluster you can simply terminate it. The autoscaling group will automatically provision a new host and the swarm will automatically rebalance the containers the node was running.
+
+##### Removing "down" Nodes
+
+Once instance have been removed from the swarm, the node is show in a "down" state in the `docker node ls` output. You can remove these nodes using the make task:
+
+```bash
+$ make swarm-tidy
+```
 
 ## Destroying the swarm
 
