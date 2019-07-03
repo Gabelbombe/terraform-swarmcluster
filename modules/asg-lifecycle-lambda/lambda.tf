@@ -10,7 +10,7 @@ resource "aws_lambda_function" "notify" {
     variables = "${var.env_vars}"
   }
 
-  tags {
+  tags = {
     Name           = "${var.name}"
     Application    = "${var.application}"
     Provision      = "terraform"

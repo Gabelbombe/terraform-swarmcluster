@@ -49,7 +49,7 @@ resource "aws_security_group" "swarm" {
     ]
   }
 
-  tags {
+  tags = {
     Name           = "${var.name}"
     Application    = "${var.application}"
     Provision      = "terraform"

@@ -35,7 +35,7 @@ data "aws_iam_policy_document" "asg" {
 data "template_file" "user-data" {
   template = "${ file( "${ path.module }/bin/user-data.sh" )}"
 
-  vars {
+  vars = {
     ROLE                   = "${var.role}"
     SWARM_DISCOVERY_BUCKET = "${var.discovery-bucket}"
   }

@@ -20,7 +20,7 @@ resource "aws_subnet" "private" {
 
   map_public_ip_on_launch = "false"
 
-  tags {
+  tags = {
     Provisioner    = "terraform"
     ProvisionerSrc = "${ var.provisionersrc }"
     Name           = "${ var.name }"
@@ -36,7 +36,7 @@ resource "aws_route_table" "private" {
     nat_gateway_id = "${ aws_nat_gateway.nat.id }"
   }
 
-  tags {
+  tags = {
     Provisioner    = "terraform"
     ProvisionerSrc = "${ var.provisionersrc }"
     Name           = "${ var.name }"

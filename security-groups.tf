@@ -37,7 +37,7 @@ resource "aws_security_group" "app" {
     ]
   }
 
-  tags {
+  tags = {
     Name           = "${var.application}-app-sg"
     Application    = "${var.application}"
     Provision      = "terraform"
