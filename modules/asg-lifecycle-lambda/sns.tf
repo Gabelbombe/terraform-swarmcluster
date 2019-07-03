@@ -3,7 +3,7 @@ resource "aws_sns_topic" "notify" {
 }
 
 resource "aws_autoscaling_notification" "notify" {
-  group_names = ["${var.group_names}"]
+  group_names = "${var.group_names}"
 
   notifications = [
     "autoscaling:EC2_INSTANCE_LAUNCH",

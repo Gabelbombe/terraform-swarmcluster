@@ -11,7 +11,7 @@ resource "aws_autoscaling_group" "asg" {
   desired_capacity          = "${ var.size }"
   max_size                  = "${ var.size }"
   min_size                  = "0"
-  vpc_zone_identifier       = ["${ var.subnet-ids }"]
+  vpc_zone_identifier       = "${ var.subnet-ids }"
 
   # Important note: whenever using a launch configuration with an auto scaling
   # group, you must set create_before_destroy = true. However, as soon as you
@@ -77,9 +77,7 @@ resource "aws_launch_configuration" "asg" {
     volume_type = "gp2"
   }
 
-  security_groups = [
-    "${ var.security-group-ids }",
-  ]
+  security_groups = "${ var.security-group-ids }"
 
   user_data = "${ data.template_file.user-data.rendered }"
 
